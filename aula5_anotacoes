@@ -1,0 +1,231 @@
+Aula 5 - Introdução ao JavaScript - Básico II
+
+JavaScript é uma linguagem reativa - que precisa da interação do usuário pra reagir.
+
+Funções:
+
+É um trecho de código que executa alguma coisa e retorna um valor pra aplicação.
+
+Esse retorno de valor é declarado pelo comando "return", que vai parar a função e retornar o valor pra aplicação.
+
+Funções são utilizadas pra realizar cálculos, conversão e validação.
+
+As funções ajudam o código a terem um comportamento dependendo da interação do usuário - ou de outros códigos.
+
+Tipos de funções:
+
+- comum, pode ser chamada quantas vezes forem necessárias.
+- anônima, não tem nome, pode ser executada sempre que for necessário um  trecho de código em um determinado contexto.
+- arrow function (EcmaScript 6), funções simples, permitem que o código dentro da função não fique tão isolado quanto o restante do código.
+
+Funções recebem parâmetros (ou argumentos, como quiser), que são variáveis criadas na invocação da função.
+
+sintaxe: 
+
+Function (parâmetro, parâmetro2) {
+
+bloco de instruções
+
+}
+
+Argumentos permitem o acesso dos parâmetros de uma função.
+
+A função precisa ser chamada e receber os parâmetros pra ser eficiente.
+
+o "return", ou seja, o resultado do bloco de instruções que a função vai retornar, vai ser alocado na função. 
+
+Então, como na aula, temos a função somar, com os parâmetros x1 e x2. 
+
+Essa função retorna x1 + x2.
+
+Chamando a função: somar(1, 2);
+
+1 vai passar pro x1, 2 vai passar pro x2.
+
+Se criarmos uma variável que recebe o valor da função, ou seja:
+
+let resultado = somar (1, 2);
+
+a variável "resultado" vai ter o valor retornado da função. 
+
+podemos mostrar com:
+
+console.log(resultado);
+
+
+funções nativas são funções que já existem, são como ferramentas que precisamos aprender como e quando usar.
+
+Por exemplo, temos a função "eval". 
+Nessa aula, ela foi utilizada pra validar a função criada, executando a string e tornando ela interpretativa.
+
+return eval();
+
+
+função anônima e seu conteúdo são um valor, e precisam ser declarados como um.
+
+Então, elas são declaradas da seguinte maneira:
+
+(function (x1, x2) {
+	bloco de instruções;
+} 
+
+como ela só existe na hora da invocação, ela precisa ser chamada - ou seja, receber os parâmetros - logo após sua declaração:
+
+[...]
+
+} (1, 2)
+
+);
+
+
+Arrow function: O que acontece na função, fica na função.
+
+Porém, dá pra utilizar as informações de fora dentro da função.
+
+Não precisamos declarar a função com "function", agora ela é uma variável.
+
+Nesse caso, teremos uma variável armazenando uma função. 
+
+Essa função pode ser passada em um parâmetro, em callback, e em diversas outras situações.
+
+(callback = passa a função de retorno como parâmetro após uma ação)
+
+
+Manipulação de DOM (Document Object Model) 
+
+DOM é a estrutura como o HTML é formado.
+
+Toda vez que quisermos interagir com o que o usuário está visualizando, vamos manipular o DOM.
+
+Em um navegador web, o objetivo do js é interagir com o comportamento do usuário.
+
+JavaScript pode manipular as classes e ids declaradas no HTML e no CSS.
+
+Em algumas situações, terão classes do CSS que estão prontas pra serem usadas, mas dependem do comportamento do usuário.
+
+Esses eventos nada mais são do que ações realizadas na aplicação que disparam rotinas.
+
+Se, por exemplo, o usuário está preenchendo um formulário. Assim que ele clicar no botão, vai ocorrer o evento da chamada de uma função JavaScript que vai enviar os dados preenchidos no formulário.
+
+É importante gravar a estrutura das funções de eventos:
+
+document (alvo) 
+.addEventListener (adiciona uma escuta de eventos pro documento)
+
+e depois, os parâmetros passados e o bloco de instruções à serem executadas.
+
+window: manipulação da aplicação inteira.
+
+document: manipulação do corpo da aplicação.
+
+a classe Date vai informar a timestamp de uma data. Timestamp é a quantidade de segundos que se passaram desde 01/01/1970 até a data informada.
+
+let data = Date.now();
+
+Porém, ela "crua" só informa essa timestamp não-formatada, ilegível pro usuário.
+
+Então, para ela se tornar legível e ser formatada, precisamos instanciá-la.
+
+let data = new Date();
+
+dessa forma, não estamos mais utilizando o método estático da classe (now) e sim, criando uma instância dessa classe.
+
+
+Arrays:
+
+Arrays são variáveis indexadas cuja posição são os indíces e, os valores, os dados que temos dentro dele.
+
+São identificados pela presença de [].
+
+Vamos supor que mais de uma informação precisa ser armazenada ao mesmo tempo.
+
+Por exemplo, uma montadora de carros - a FIAT, pra facilitar - pode ter vários modelos, mas todos são FIAT.
+
+
+O array não é fortemente tipado, então ele pode receber variáveis de tipos diferentes. O primeiro index pode ser string, o segundo booleano, o terceiro uma função, e por aí vai.
+
+O array começa sempre no 0. Então, se tivermos 3 elementos, eles são: 0, 1 e 2.
+
+Arrays são metamórficos. Ou seja, se tivermos "new Date()" dentro dele na posição 6 e quisermos, por dentro do array mesmo, mostrar o ano da data, podemos fazer:
+
+console.log(carros[6].getFullYear());
+
+o "carros[6]" vai selecionar e se "transformar" no new Date(), possibilitando a recepção de métodos próprios do new Date().
+
+
+Orientação à objetos:
+
+É um jeito de programar que foca na reutilização do código e numa melhor formatação, deixando o código mais limpo e funcional.
+
+Tudo acontece em uma classe.
+
+Classe é um conjunto de atributos e métodos.
+
+Exemplo: Você tá construindo uma calculadora. Dentro dessa calculadora, diversas operações vão acontecer.
+
+Se o usuário somar, vai acontecer uma coisa. Se subtrair, outra coisa.
+
+Então, nesse caso, teria uma classe Calculadora onde tudo que tem a ver com ela vai ficar lá dentro.
+
+A classe engloba todos os assuntos em comum. Funciona como um arquivo .zip, onde tudo que importa tá dentro dele, e não é ele em si.
+
+Dentro de uma classe, existem variáveis e funções, porém, elas são denominadas de forma diferente.
+
+A variável passa a se chamar "atributo", enquanto a função passa a se chamar "método". 
+
+Isso acontece pois, dentro da classe, esses elementos ganham atributos.
+
+Um atributo é como uma variável, mas ele pode ser chamado da classe aonde for necessário, é possível alocar recursos lá dentro e controlar quem chama os atributos e como eles são chamados.
+
+O método é basicamente uma função, a diferença é que ele não é criado com a palavra "function" - até pode colocar, mas o método precisa estar dentro de uma classe.
+
+Métodos executam processos. Podem ser chamados por outros elementos dentro da classe.
+
+Pra essas chamadas, usamos o comando "this". É um comando interno usado pra referenciar um atributo ou método.
+
+Resumindo:
+
+Atributo = Informação, o que eu armazeno.
+Método = As ações que serão realizadas.
+
+Para usar a classe, precisa atribuir a palavra "New."
+
+Exemplo: let calculator = new Calculadora() | onde Calculadora é o nome da classe.
+
+Essa linha diz que essa variável (calculator) agora é uma nova INSTÂNCIA a classe Calculadora.
+
+INSTÂNCIA = Quando um objeto representa uma classe. Nesse caso, o objeto seria a variável "calculator".
+
+Então, todos os atributos e métodos criados em Calculadora, agora estão acessíveis pro objeto que instanciou a classe Calculadora - nesse caso, calculator.
+
+O "New" faz isso. É como se ele tirasse uma cópia dos atributos e métodos de uma classe e guardasse em um objeto. 
+
+A variável deixa de ser variável e se torna objeto quando ela instancia uma classe.
+
+O código começa a ficar mais inteligente quando classes genéricas - que podem ser utilizadas em várias circunstâncias - são criadas.
+
+Quanto mais inteligente for sua classe, mais limpo será o código final.
+
+Pegamos de exemplo um celular:
+
+O celular seria um objeto, e seus atributos seriam coisas como: versão do sistema operacional, se tem 4g, modelo, marca, etc.
+
+As funções seriam atender uma ligação, abrir um aplicativo, etc.
+
+Essas funções dentro do objeto celular são Métodos.
+
+O objeto celular também pode ter eventos. Por exemplo, se alguém liga pra ele, ele vai "ouvir" o evento da ligação e abrir uma tela específica pro usuário atender ou recusar a chamada. Ou seja, ele possibilita que o usuário RESPONDA ao evento acionado por outro objeto.
+
+Além disso, isso esses atributos e métodos são padrões de um certo modelo do dispositivo. Então, quando existe um padrão de modelo específico contendo todos os atributos e métodos, temos uma classe. Essa classe é aplicada em todos os objetos que derivam dela, esses objetos herdam os atributos e métodos da classe.
+
+Quando criamos uma variável com "let" dentro de uma classe, ela se torna uma variável local, não podendo ser chamada fora de tal classe.
+
+Pra ela poder ser chamada, ela precisa se tornar um objeto. E, pra isso, usamos a palavra this.
+
+Toda vez que colocamos "()", estamos chamando o método construtor. Na nova sintaxe do JavaScript, precisamos utilizar esse método na criação de classes.
+
+
+
+
+			      
+
