@@ -1,4 +1,4 @@
-# 
+4 de 227 concluído.
 
 Resumo da aula 5 de JavaScript da Clear Cloud.
 
